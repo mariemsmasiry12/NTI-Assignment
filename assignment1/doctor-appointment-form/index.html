@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <img src="img/doctor.jpeg" alt="doctor">
+
+    <div class="form-side">
+
+        <h1>Doctor Appointment Form</h1>
+        <hr>
+
+        <form id="appointmentForm">
+
+            <div>
+                <label>Appointment Date</label>
+                <input type="date" name="appdate" id="appdate" required>
+            </div>
+
+            <div>
+                <label>Appointment Time</label>
+                <input type="time" name="apptime" id="apptime" required>
+            </div>
+
+            <div>
+                <label>Name</label>
+                <input type="text" name="fname" id="fname" placeholder="First" required>
+                <input type="text" name="lname" id="lname" placeholder="Last" required>
+            </div>
+
+            <div>
+                <label>Gender</label>
+
+                <input type="radio" name="gender" value="male">
+                <label for="">Male</label>
+
+                <input type="radio" name="gender" value="female">
+                <label for="">Female</label>
+            </div>
+
+            <div>
+                <label>Phone</label>
+                <input type="tel" name="phone" id="phone" placeholder="####" required>
+            </div>
+
+            <div>
+                <label>Address</label>
+                <input type="text" name="city" placeholder="city">
+                <input type="text" name="state" placeholder="state">
+            </div>
+
+            <div>
+                <label>Your Query</label>
+                <textarea name="query" id="query" maxlength="200"></textarea>
+            </div>
+
+            <div>
+                <label></label>
+                <span id="charCount" class="char-count">0/200</span>
+            </div>
+
+            <div>
+                <label>Appointment Type</label>
+
+                <div class="checkbox-group">
+
+                    <span>Select which appointment type(s) you require</span><br>
+
+                    <input type="checkbox" name="apptype" value="cervix">
+                    <label>Cervix checkup</label><br>
+
+                    <input type="checkbox" name="apptype" value="heart">
+                    <label>Heart checkup</label><br>
+
+                    <input type="checkbox" name="apptype" value="eye">
+                    <label>Eye check-up</label><br>
+
+                    <input type="checkbox" name="apptype" value="hearing">
+                    <label>Hearing Test</label>
+
+                </div>
+            </div>
+
+            <button type="submit">Send</button>
+
+        </form>
+
+        <p id="formMessage"></p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
