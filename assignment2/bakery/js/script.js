@@ -136,6 +136,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---------- single post: comment form (front-end only) ---------- */
+  const commentForm = document.querySelector('.comment-form form');
+  const commentList = document.querySelector('.comment-list');
+  const commentEmpty = document.querySelector('.comment-empty');
+  const commentCount = document.querySelector('.comments-heading .count');
+  if (commentForm) {
+    commentForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = commentForm.querySelector('[name="name"]').value.trim() || 'Guest';
+      const message = commentForm.querySelector('[name="comment"]').value.trim();
+      if (!message) return;
+      if (commentEmpty) commentEmpty.style.display = 'none';
+      const item = document.createElement('div');
+      item.className = 'comment-item';
+      item.innerHTML = `
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="">
+        <div>
+          <h5>${name}<span class="comment-date">just now</span></h5>
+          <p></p>
+        </div>`;
+      item.querySelector('p').textContent = message;
+      if (commentList) commentList.appendChild(item);
+      if (commentCount) commentCount.textContent = (parseInt(commentCount.textContent, 10) || 0) + 1;
+      commentForm.reset();
+    });
+  }
+
   /* ---------- blog search filter (front-end only) ---------- */
   const searchInput = document.querySelector('.search-box input');
   const searchBtn = document.querySelector('.search-box button');
